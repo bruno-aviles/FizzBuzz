@@ -1,16 +1,24 @@
+/* Logo Font */
+@import url('https://fonts.googleapis.com/css2?family=Oleo+Script:wght@700&display=swap');
+
 /* Set up your color variable scheme */
 :root {
-    --primary-color: #1d5888;
-    --secondary-color: #ff993b;
+    --primary-color: #501a83;
+    --secondary-color: #3be8ff;
     --dark-color: #292929;
     --white-color: #dff3e4;
 }
 
-body {color: var(--dark-color);}
+body {
+    color: var(--dark-color);
+    background: #abbaab;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #ffffff, #abbaab);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #ffffff, #abbaab); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
 
-nav {background-color:var(--dark-color);}
+nav {background-color:var(--primary-color);}
 
-footer{background-color:var(--dark-color);}
+footer{background-color:var(--primary-color);}
 
 h1,h2,h3,h4,h5,h6 {color: var(--primary-color);}
 
@@ -28,23 +36,12 @@ footer .social>a:hover {
     color: var(--secondary-color);
 }
 
-.bsicon{
-    color: purple;
-}
-.jsicon{
-    color: yellow;
-}
-
-.html5icon{
-    color: orangered;
-}
-
-.cssicon {
-    color: blue;
+.logoFont {
+    font-family: 'Oleo Script', cursive;
 }
 
 .checklist>li i {
-    color: var(--secondary-color);
+    color: var(--primary-color);
 }
 
 code[class*="language-"],
