@@ -79,17 +79,17 @@
                         <div class="row row-cols-1 row-cols-sm-2 gy-3">
                             <div class="col">
                                 <label class="form-label lead fw-normal" for="fizzNumber">Enter A Fizz Number</label>
-                                <input class="form-control" type="number" id="fizzNumber" value="3">
+                                <input class="form-control" type="number" id="fizzNumber">
                             </div>
                             <div class="col">
                                 <label class="form-label lead fw-normal" for="buzzNumber">Enter A Buzz Number</label>
-                                <input class="form-control" type="number" id="buzzNumber" value="5">
+                                <input class="form-control" type="number" id="buzzNumber">
                             </div>
                         </div>
                         <!-- Button -->
                         <div class="row mt-3">
                             <div class="col">
-                                <button class="btn btn-info btn-lg" type="button">Submit</button>
+                                <button class="btn btn-info btn-lg" type="button" id="btnSubmit">Submit</button>
                             </div>
                         </div>
                     </form>
@@ -100,31 +100,11 @@
                             <table class="table table-dark table-striped">
                                 <thead>
                                     <tr>
-                                        <th scope="row" colspan="5">Fizz Buzz Results!</th>
+                                        <th scope="row" colspan="5" class="text-center">Fizz Buzz Results!</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                    </tr>
+                                <tbody id="results">
+                                    <!-- Display Results Using JavaScript -->
                                 </tbody>
                             </table>
                         </div>
@@ -158,9 +138,14 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-
+    <!-- App Code -->
     <script src="/js/site.js"></script>
+    <!-- Button Functionality -->
+    <script>
+        let submitValues = document.getElementById("btnSubmit");
 
+        submitValues.addEventListener("click", displayResults);
+    </script>
 </body>
 
 </html>
