@@ -3,7 +3,7 @@
 
 <head>
     <!-- Change 'App Name' for every project -->
-    <title>App Name: A Coding Project By Bruno Aviles</title>
+    <title>FIZZBUZZ: A Coding Project By Bruno Aviles</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -16,7 +16,7 @@
     <!-- CSS Prism -->
     <link rel="stylesheet" href="/css/prism.css">
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="/img/favicon.ico">
+    <link rel="icon" type="image/png" href="/img/favicon-logo.svg">
 
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/8a7b6b0a99.js" crossorigin="anonymous"></script>
@@ -28,7 +28,7 @@
     <nav class="navbar navbar-expand-md navbar-dark fixed-top ">
         <div class="container-fluid">
             <!-- Change 'APP NAME' to your brand name -->
-            <a class="navbar-brand" href="#"><img src="/img/favicon.ico" class="d-inline-block align-text-top" width="30" height="24"> APP NAME</a>
+            <a class="navbar-brand logoFont" href="index.html">FIZZBUZZ</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -42,7 +42,7 @@
                         <a class="nav-link" href="app.html">The App</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="code.html">The Code</a>
+                        <a class="nav-link active text-info" aria-current="page" href="code.html">The Code</a>
                     </li>
                     <li class="nav-item">
                         <!-- Link this to your portfolio -->
@@ -60,25 +60,87 @@
     <!-- MAIN -->
     <main class="flex-shrink-0">
         <div class="container py-5 px-5">
-            <h2 class="border-1 border-bottom border-dark mt-5">The Code for APP NAME</h2>
+            <h2 class="border-3 border-bottom border-info mt-5 logoFont">The Code</h2>
             <div class="row row-cols-1 row-cols-md-2">
                 <!-- Code Embedded -->
                 <div class="col-lg-8">
                     <!-- Insert App Project Code -->
                     <pre class="line-numbers">
                     <code class="language-javascript">
-                        // Call Hello World 
-                        function HelloWorld(){ 
-                            alert("hello world"); 
+                        //Display Results to user
+                        function displayResults(){
+
+                            //get user inputs
+                            let fNumber = document.getElementById("fizzNumber").value;
+                            let bNumber = document.getElementById("buzzNumber").value;
+                            
+                            verifyNumbers(fNumber,bNumber);
                         }
+
+                        //Verify FIZZBUZZ
+                        function verifyNumbers(fizz,buzz){
+
+                            let displayNumbers = document.getElementById("results");
+                            // store all &lttd> elements from for loop
+                            let templateRows = "";
+
+                            // verifies to see if user inputs are between 1 to 100
+                            if(fizz < 1 || fizz > 100){
+                                templateRows += `&lttr>&lttd>Enter A Number Between 1 - 100&lt/td>&lt/tr>`;
+                                return displayNumbers.innerHTML = templateRows;
+                            } else if(buzz < 1 || buzz > 100){
+                                templateRows += `&lttr>&lttd>Enter A Number Between 1 - 100&lt/td>&lt/tr>`;
+                                return displayNumbers.innerHTML = templateRows;
+                            }
+
+                            // loop through input numbers counting forward and add &lttd> element for each number
+                            if(fizz < buzz){
+                                for(number=fizz;number <= buzz;number++){
+                                    // replace the numbers that are a multiple of 3 and 5 with "FIZZ" and "BUZZ"
+                                    if(number % 3 == 0 && number % 5 == 0){
+                                        templateRows += `&lttr>&lttd>FIZZBUZZ&lt/td>&lt/tr>`;
+                                    } else if(number % 3 == 0){
+                                        templateRows += `&lttr>&lttd>FIZZ&lt/td>&lt/tr>`;
+                                    } else if(number % 5 == 0){
+                                        templateRows += `&lttr>&lttd>BUZZ&lt/td>&lt/tr>`;
+                                    } else {
+                                        templateRows += `&lttr>&lttd>${number}&lt/td>&lt/tr>`;
+                                    }
+                            
+                                    // insert all stored values from templateRows to &lttbody>
+                                    displayNumbers.innerHTML = templateRows;      
+                                }
+                            } else if(fizz > buzz){
+                                for(number=fizz;number >= buzz;number--){
+                                    // replace the numbers that are a multiple of 3 and 5 with "FIZZ" and "BUZZ"
+                                    if(number % 3 == 0 && number % 5 == 0){
+                                        templateRows += `&lttr>&lttd>FIZZBUZZ&lt/td>&lt/tr>`;
+                                    } else if(number % 3 == 0){
+                                        templateRows += `&lttr>&lttd>FIZZ&lt/td>&lt/tr>`;
+                                    } else if(number % 5 == 0){
+                                        templateRows += `&lttr>&lttd>BUZZ&lt/td>&lt/tr>`;
+                                    } else {
+                                        templateRows += `&lttr>&lttd>${number}&lt/td>&lt/tr>`;
+                                    }
+                            
+                                    // insert all stored values from templateRows to &lttbody>
+                                    displayNumbers.innerHTML = templateRows;      
+                                }
+                            }    
+                        }
+
                     </code>
                     </pre>
                 </div>
                 <!-- Description of Code -->
                 <div class="col-lg-4">
-                    <p>The Code is Structures in one function</p>
-                    <h5>Hello World</h5>
-                    <p>Hello World is a function that displays an alert with a message of "Hello World"</p>
+                    <p class="fw-bold">The Code is Structured in two functions</p>
+                    <h5>displayResults</h5>
+                    <p><span class="fw-bold">displayResults</span> function obtains(gets) the values from the input fields and displays them on a table format. The values are stored in variables (fNumber) and (bNumber). Variables (fNumber) and (bNumber) are passed through function <span class="fw-bold">verifyNumbers</span>.</p>
+
+                    <h5>verifyNumbers</h5>
+                    <p><span class="fw-bold">verifyNumbers</span> takes two parameters "fizz" and "buzz" and contains two variables (displayNumbers) and (templateRows). Variable (displayNumbers) obtains the element that will display the results. "fizz" and "buzz" values are checked to see if the values are within numbers 1 to 100. If the values are not within the specified number range, a message will display in the results container reassuring the user to input the appropriate values.</p>
+                    <p>A for loop is used to iterate the numbers starting from the "fizz" number to the "buzz" number. For each number that is being iterated, if the number is a multiple of '3', then the word <span class="fw-bold">FIZZ</span> will be displayed in the results container. If the number is a multiple of '5', then the word <span class="fw-bold">BUZZ</span> will be displayed in the results container. If the number is a multiple of both '3' and '5', then the word <span class="fw-bold">FIZZBUZZ</span> will be displayed in the results container. All other numbers that are not a multiple of '3' and '5' will be displayed as numbers.</p>
                 </div>
             </div>
         </div>
@@ -91,7 +153,7 @@
                 <!-- copyright -->
                 <div class="col d-flex align-items-center justify-content-center justify-content-md-start order-last order-sm-first text-light">
                     <div>
-                        <span class="text-muted">&copy;2022</span> Bruno Aviles | bruno.aviles@yahoo.com
+                        <span class="text-muted">&copy;2022</span> Bruno Aviles | <span style="color: aqua;">bruno.aviles@yahoo.com</span>
                     </div>
                 </div>
                 <!-- logo -->
@@ -104,7 +166,7 @@
                     <div class="row">
                         <div class="col social"><a href="#" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a></div>
                         <div class="col social"><a href="#" target="_blank"><i class="fab fa-github fa-2x"></i></a></div>
-                        <div class="col social"><a href="#" ><i class="fab fa-twitter fa-2x"></i></a></div>
+                        <div class="col social"><a href="#" target="_blank"><i class="fab fa-twitter fa-2x"></i></a></div>
                     </div>
                 </div>
             </div>
