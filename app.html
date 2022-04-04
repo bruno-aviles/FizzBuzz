@@ -78,12 +78,12 @@
                     <form class="mt-2">
                         <div class="row row-cols-1 row-cols-sm-2 gy-3">
                             <div class="col">
-                                <label class="form-label lead fw-normal" for="fizzNumber">Enter A Fizz Number</label>
-                                <input class="form-control" type="number" id="fizzNumber">
+                                <label class="form-label lead fw-normal" for="fizzValue">Enter A Fizz Number</label>
+                                <input class="form-control" type="number" id="fizzValue">
                             </div>
                             <div class="col">
-                                <label class="form-label lead fw-normal" for="buzzNumber">Enter A Buzz Number</label>
-                                <input class="form-control" type="number" id="buzzNumber">
+                                <label class="form-label lead fw-normal" for="buzzValue">Enter A Buzz Number</label>
+                                <input class="form-control" type="number" id="buzzValue">
                             </div>
                         </div>
                         <!-- Button -->
@@ -136,15 +136,24 @@
         </div>
     </footer>
 
+    <template id="fbTemplate">
+        <tr>
+            <td></td> <!--index 0-->
+            <td></td> <!--index 1-->
+            <td></td> <!--index 2-->
+            <td></td> <!--index 3-->
+            <td></td> <!--index 4-->
+        </tr>
+    </template>
+
+
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
     <!-- App Code -->
     <script src="/js/site.js"></script>
     <!-- Button Functionality -->
     <script>
-        let submitValues = document.getElementById("btnSubmit");
-
-        submitValues.addEventListener("click", displayResults);
+        document.getElementById("btnSubmit").addEventListener("click", getValues);
     </script>
 </body>
 
