@@ -12,7 +12,7 @@ function getValues(){
     // check that the numbers are integers
     if(Number.isInteger(fizzValue) && Number.isInteger(buzzValue)) {
         // we call fizzbuzz
-        let fBArray = fizzBuzz(fizzValue, buzzValue);
+        let fBArray = fizzBuzzC(fizzValue, buzzValue);
          // call displayData and write the values to the scream
         displayData(fBArray);
     } else {
@@ -20,8 +20,8 @@ function getValues(){
     }
 }
 
-// do fizz buzz
-function fizzBuzz(fizzValue, buzzValue){
+// do fizzbuzz using if/else statement
+function fizzBuzzA(fizzValue, buzzValue){
 
     let returnArray = [];
 
@@ -45,6 +45,57 @@ function fizzBuzz(fizzValue, buzzValue){
 
 }
 
+// do fizzbuzz using a switch statement
+function fizzBuzzB(fizzValue, buzzValue){
+
+    let returnArray = [];
+
+    // evaluate using boolean values
+    let Fizz = false;
+    let Buzz = false;
+
+    for(let i = 0; i <= 100; i++){
+
+
+        Fizz = i % fizzValue == 0;
+        Buzz = i % buzzValue == 0;
+
+        switch(true){
+            case Fizz && Buzz:{
+                returnArray.push('fizzBuzz');
+                break;
+            }
+            case Fizz: {
+                returnArray.push('fizz');
+                break;
+            }
+            case Buzz: {
+                returnArray.push('Buzz');
+                break;
+            }
+            default:{
+                returnArray.push(i);
+                break;
+            }
+        }
+    }
+    return returnArray;
+}
+
+//do fizzbuzz using ternary operator
+function fizzBuzzC(fizzValue, buzzValue){
+    let returnArray = [];
+
+    for(let i =1; i <= 100; i++){
+
+        //empty string evaluates to 'false'. A variable with any value will evaluate to 'true' 
+        let value =((i % fizzValue == 0 ? 'Fizz' : '') + (i % buzzValue == 0 ? 'Buzz' : '') || i);
+        returnArray.push(value);
+
+    }
+    return returnArray;
+}
+
 // loop over the array and create a tablerow for each item.
 function displayData(fbArray){
 
@@ -59,9 +110,10 @@ function displayData(fbArray){
 
     for (let index = 0; index < fbArray.length; index += 5) {
         
+        // copy the all data from the template
         let tableRow = document.importNode(templateRow.content, true);
 
-        // grab use the ts put into array
+        // grab just the td and put into array
         let rowCols = tableRow.querySelectorAll("td");
         rowCols[0].classList.add(fbArray[index])
         rowCols[0].textContent = fbArray[index];
@@ -78,8 +130,7 @@ function displayData(fbArray){
         rowCols[4].classList.add(fbArray[index + 4])
         rowCols[4].textContent = fbArray[index + 4];
 
+        // add all the rows to the table
         tableBody.appendChild(tableRow);
     }
-
-    // add all the rows to the table
 }
